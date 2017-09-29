@@ -1,453 +1,89 @@
-# Forms
-## HIV care and adherence
-"A model completed by the user on the participant's access to
-    and adherence to HIV care.
-    
-*Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
-
-*Additional instructions*: This section is only to be completed by HIV-positive participants who knew that they were HIV-positive before today. Section should be skipped for HIV-negative participants and participants who first tested HIV-positive today.<H5><span style="color:orange;">Read to Participant</span></H5>I am now going to ask you some questions about care you may have been given for your HIV infection.
+# BCPP Forms Reference
+## Table of contents
 
 
-**Section: Main**
+<a href="#user-content-t2">**T2.**</a>
+1. <a href="#user-content-residency--mobility">Residency & Mobility</a>
+2. <a href="#user-content-demographics">Demographics</a>
+3. <a href="#user-content-education-t2">Education (T2)</a>
+4. <a href="#user-content-hiv-testing-history">HIV Testing History</a>
+5. <a href="#user-content-hiv-test-review">HIV Test Review</a>
+6. <a href="#user-content-hiv-result-documentation">HIV result documentation</a>
+7. <a href="#user-content-hiv-tested">HIV Tested</a>
+8. <a href="#user-content-hiv-care-and-adherence">HIV care and adherence</a>
+9. <a href="#user-content-sexual-behaviour">Sexual Behaviour</a>
+10. <a href="#user-content-recent-partner---12-months">Recent Partner - 12 Months</a>
+11. <a href="#user-content-second-partner---12-months">Second Partner - 12 Months</a>
+12. <a href="#user-content-third-partner---12-months">Third Partner - 12 Months</a>
+13. <a href="#user-content-hiv-medical-care">HIV Medical care</a>
+14. <a href="#user-content-access-to-care">Access to care</a>
+15. <a href="#user-content-circumcision">Circumcision</a>
+16. <a href="#user-content-circumcised">Circumcised</a>
+17. <a href="#user-content-uncircumcised">Uncircumcised</a>
+18. <a href="#user-content-reproductive-health">Reproductive Health</a>
+19. <a href="#user-content-medical-diagnoses">Medical Diagnoses</a>
+20. <a href="#user-content-hypertension-and-cardiovascular-risk">Hypertension and Cardiovascular Risk</a>
+21. <a href="#user-content-heart-attack-or-stroke">Heart Attack or Stroke</a>
+22. <a href="#user-content-cancer">Cancer</a>
+23. <a href="#user-content-potentially-hiv-related-illnesses">Potentially HIV-related illnesses</a>
+24. <a href="#user-content-tuberculosis">Tuberculosis</a>
+25. <a href="#user-content-tb-symptoms">TB Symptoms</a>
+26. <a href="#user-content-quality-of-life">Quality of Life</a>
+27. <a href="#user-content-resource-utilization-costs">Resource Utilization Costs</a>
+28. <a href="#user-content-outpatient-care">Outpatient care</a>
+29. <a href="#user-content-hospital-admission">Hospital Admission</a>
+30. <a href="#user-content-hiv-health-care-costs">HIV health care costs</a>
+31. <a href="#user-content-labour-market--lost-wages">Labour Market & Lost Wages</a>
+32. <a href="#user-content-hiv-linkage-to-care">Hiv Linkage To Care</a>
+33. <a href="#user-content-todays-hiv-result">Today's HIV Result</a>
+34. <a href="#user-content-elisas-hiv-result">Elisa's HIV Result</a>
+35. <a href="#user-content-pima-cd4-count">PIMA CD4 count</a>
+36. <a href="#user-content-hic-enrollment">Hic Enrollment</a>
+37. <a href="#user-content-subject-referral">subject referral</a>
 
-**1.0.** subject visit
-* db_table: bcpp_subject_hivcareadherence
-* column: subject_visit
-* type: OneToOneField
----
-
-**2.0.** When was your first positive HIV test result?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *Note: If participant does not want to answer or is unable to estimate date, leave blank.*
-* db_table: bcpp_subject_hivcareadherence
-* column: first_positive
-* type: DateField
-* format: YYYY-MM-DD
----
-
-**Section: Care**
-
-**3.0.** Have you ever received HIV-related medical or clinical care, for such things as a CD4 count (masole), IDCC/ PMTCT registration, additional clinic-based counseling?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *if 'YES', answer HIV medical care section*
-* db_table: bcpp_subject_hivcareadherence
-* column: medical_care
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**4.0.** If 'No', what is the main reason you have not received HIV-related medical or clinical care?
-* db_table: bcpp_subject_hivcareadherence
-* column: no_medical_care
-* type: CharField
-* length: 70
-* responses:
-  - `N/A`: *Not applicable* 
-  - `Did not feel sick`: *Did not feel sick* 
-  - `Did not know I should get HIV care`: *Did not know I should get HIV care* 
-  - `Did not have time due to work responsibilities`: *Did not have time due to work responsibilities* 
-  - `Did not have time due to family/childcare responsibilities`: *Did not have time due to family/childcare responsibilities* 
-  - `Transportation costs`: *Transportation costs* 
-  - `Was afraid of someone (friends/family) seeing me at the HIV clinic`: *Was afraid of someone (friends/family) seeing me at the HIV clinic* 
-  - `Traditional healer advised against going`: *Traditional healer advised against going* 
-  - `Religious beliefs`: *Religious beliefs* 
-  - `Cultural beliefs`: *Cultural beliefs* 
-  - `Not provided free of charge for non-citizens`: *Not provided free of charge for non-citizens* 
-  - `OTHER`: *Other, specify:* 
-  - `not_sure`: *I am not sure* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**4.1.** If Other, specify ...
-* db_table: bcpp_subject_hivcareadherence
-* column: no_medical_care_other
-* type: CharField
-* length: 35
-* responses: *free text*
----
-
-**5.0.** Have you ever been recommended by a doctor/nurse or other healthcare worker to start antiretroviral therapy (ARVs), a combination of medicines to treat your HIV infection? 
-
-&nbsp;&nbsp;&nbsp;&nbsp; *Common medicines include: combivir, truvada, atripla, nevirapine, dolutegravir*
-* db_table: bcpp_subject_hivcareadherence
-* column: ever_recommended_arv
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**6.0.** Have you ever taken any antiretroviral therapy (ARVs) for your HIV infection?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *For women, do not include treatment that you took during pregnancy to protect your baby from HIV*
-* db_table: bcpp_subject_hivcareadherence
-* column: ever_taken_arv
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**7.0.** If 'No', What was the main reason why you have not started ARVs?
-* db_table: bcpp_subject_hivcareadherence
-* column: why_no_arv
-* type: CharField
-* length: 75
-* responses:
-  - `N/A`: *Not applicable* 
-  - `Did not feel sick`: *Did not feel sick* 
-  - `Was afraid treatment would make me feel bad/sick`: *Was afraid treatment  would make me feel bad/sick* 
-  - `Difficulty finding someone to go with me for counseling (mopati)`: *Difficulty finding someone to go with me for counseling (mopati)* 
-  - `Hard due to work responsibilities`: *Hard due to work responsibilities* 
-  - `Hard due to family/childcare responsibilities`: *Hard due to family/childcare responsibilities* 
-  - `Transportation costs`: *Transportation costs* 
-  - `Was afraid of someone (friends/family) seeing me at the HIV clinic`: *Was afraid of someone (friends/family) seeing me at the HIV clinic* 
-  - `Sexual partner advised against taking`: *Sexual partner advised against taking* 
-  - `Family or friends advised against taking`: *Family or friends advised against taking* 
-  - `Traditional healer advised against taking`: *Traditional healer advised against taking* 
-  - `Religious beliefs`: *Religious beliefs* 
-  - `Cultural beliefs`: *Cultural beliefs* 
-  - `High CD4`: *High CD4* 
-  - `Cost`: *Cost* 
-  - `OTHER`: *Other, specify:* 
-  - `not_sure`: *I am not sure* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**7.1.** If Other, specify ...
-* db_table: bcpp_subject_hivcareadherence
-* column: why_no_arv_other
-* type: CharField
-* length: 35
-* responses: *free text*
----
-
-**Section: Antiretiroviral Therapy**
-
-**8.0.** Are you currently taking antiretroviral therapy (ARVs)?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If yes, need to answer next two questions.*
-* db_table: bcpp_subject_hivcareadherence
-* column: on_arv
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `DWTA`: *Don't want to answer* 
-  - `N/A`: *Not applicable* 
----
-
-**9.0.** <span style="color:orange;">Interviewer: </span> Is there evidence that the participant is on therapy?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *Examples of evidence might be OPD card, tablets, masa number, etc.*
-* db_table: bcpp_subject_hivcareadherence
-* column: arv_evidence
-* type: CharField
-* length: 3
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `N/A`: *Not applicable* 
----
-
-**10.0.** When did you first start taking antiretroviral therapy (ARVs)?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *Note: If participant does not want to answer or is unable to estimate date, leave blank.*
-* db_table: bcpp_subject_hivcareadherence
-* column: first_arv
-* type: DateField
-* format: YYYY-MM-DD
----
-
-**11.0.** When did you stop taking ARV's?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If not applicable, leave blank.*
-* db_table: bcpp_subject_hivcareadherence
-* column: arv_stop_date
-* type: DateField
-* format: YYYY-MM-DD
----
-
-**12.0.** If 'stopped', what was the main reason why you stopped taking ARVs?
-* db_table: bcpp_subject_hivcareadherence
-* column: arv_stop
-* type: CharField
-* length: 80
-* responses:
-  - `N/A`: *Not applicable* 
-  - `Did not feel they were helping`: *Did not feel they were helping* 
-  - `ARVs made me feel bad or sick`: *ARVs made me feel bad or sick* 
-  - `Difficulty finding someone to go with me for counseling (mopati)`: *Difficulty finding someone to go with me for counseling (mopati)* 
-  - `Hard due to work responsibilities`: *Hard due to work responsibilities* 
-  - `Hard due to family/childcare responsibilities`: *Hard due to family/childcare responsibilities* 
-  - `Doctor or nurse at clinic told me to stop`: *Doctor or nurse at clinic told me to stop* 
-  - `Transportation costs`: *Transportation costs* 
-  - `Cost/could not afford`: *Cost/could not afford* 
-  - `Was afraid of someone (friends/family) seeing me at the HIV clinic`: *Was afraid of someone (friends/family) seeing me at the HIV clinic* 
-  - `Sexual partner advised against taking`: *Sexual partner advised against taking* 
-  - `Family or friends advised against taking`: *Family or friends advised against taking* 
-  - `Traditional healer advised against taking`: *Traditional healer advised against taking* 
-  - `Religious beliefs`: *Religious beliefs* 
-  - `Cultural beliefs`: *Cultural beliefs* 
-  - `OTHER`: *Other, specify:* 
-  - `not_sure`: *I am not sure* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**12.1.** If Other, specify ...
-* db_table: bcpp_subject_hivcareadherence
-* column: arv_stop_other
-* type: CharField
-* length: 35
-* responses: *free text*
----
-
-**13.0.** What ARV regimen are you currently prescribed? Select each ARV in the regimen
-* db_table: bcpp_subject_hivcareadherence
-* column: arvs
-* type: ManyToManyField
-* responses: *Select all that apply*
-  - `Efavirenz`: *EFV (Stocrin, Sustiva)* 
-  - `Zidovudine/lamivudine`: *ZDV/3TC or AZT/3TC (Combivir)* 
-  - `Lopinavir/ritonavir`: *LPV/r (Aluvia, Kaletra)* 
-  - `Abacavir/lamivudine`: *ABC/3TC (Epzicom)* 
-  - `Lamivudine`: *3TC (Epivir)* 
-  - `Atazanavir`: *ATV (Reyataz)* 
-  - `Tenofovir/emtricitabine`: *TDF/FTC (Truvada)* 
-  - `Saquinavir`: *SQV (Invirase)* 
-  - `Dolutegravir`: *DTG (Tivicay)* 
-  - `Zidovudine`: *ZDV or AZT (Retrovir)* 
-  - `Nevirapine`: *NVP (Viramune)* 
-  - `Ritonavir`: *RTV or r (Norvir)* 
-  - `Tenofovir`: *TDF (Viread)* 
-  - `Stavudine`: *D4T (Zerit)* 
-  - `OTHER`: * OTHER drug not listed: specify below ...* 
-  - `Raltegravir`: *RAL (Isentress)* 
-  - `Abacavir`: *ABC (Ziagen)* 
-  - `Darunavir`: *DRV (Prezista)* 
-  - `Didanosine`: *ddI (Videx)* 
----
-
-**13.1.** If other ARV, or ARVs, not listed above, specify:
-
-&nbsp;&nbsp;&nbsp;&nbsp; *use three letter abbrevitions, if known.*
-* db_table: bcpp_subject_hivcareadherence
-* column: arv_other
-* type: CharField
-* length: 25
-* responses: *free text*
----
-
-**14.0.** Is this the first regimen that you were prescribed for your HIV infection?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If the participant answered NO to the question above, record prior regimen and timing of switch.*
-* db_table: bcpp_subject_hivcareadherence
-* column: is_first_regimen
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes, this is the first regimen* 
-  - `No`: *No, I previously took at least 1 different ARV (and was switched to this regimen)* 
----
-
-**15.0.** Date switched to currently prescribed regimen above?
-* db_table: bcpp_subject_hivcareadherence
-* column: prev_switch_date
-* type: DateField
-* format: YYYY-MM-DD
----
-
-**16.0.** What ARV regimen were you previously prescribed? Select each ARV in the regimen
-* db_table: bcpp_subject_hivcareadherence
-* column: prev_arvs
-* type: ManyToManyField
-* responses: *Select all that apply*
-  - `Efavirenz`: *EFV (Stocrin, Sustiva)* 
-  - `Zidovudine/lamivudine`: *ZDV/3TC or AZT/3TC (Combivir)* 
-  - `Lopinavir/ritonavir`: *LPV/r (Aluvia, Kaletra)* 
-  - `Abacavir/lamivudine`: *ABC/3TC (Epzicom)* 
-  - `Lamivudine`: *3TC (Epivir)* 
-  - `Atazanavir`: *ATV (Reyataz)* 
-  - `Tenofovir/emtricitabine`: *TDF/FTC (Truvada)* 
-  - `Saquinavir`: *SQV (Invirase)* 
-  - `Dolutegravir`: *DTG (Tivicay)* 
-  - `Zidovudine`: *ZDV or AZT (Retrovir)* 
-  - `Nevirapine`: *NVP (Viramune)* 
-  - `Ritonavir`: *RTV or r (Norvir)* 
-  - `Tenofovir`: *TDF (Viread)* 
-  - `Stavudine`: *D4T (Zerit)* 
-  - `OTHER`: * OTHER drug not listed: specify below ...* 
-  - `Raltegravir`: *RAL (Isentress)* 
-  - `Abacavir`: *ABC (Ziagen)* 
-  - `Darunavir`: *DRV (Prezista)* 
-  - `Didanosine`: *ddI (Videx)* 
----
-
-**16.1.** If other previous ARV, or ARVs, not listed above, specify:
-
-&nbsp;&nbsp;&nbsp;&nbsp; *use three letter abbrevitions, if known.*
-* db_table: bcpp_subject_hivcareadherence
-* column: prev_arv_other
-* type: CharField
-* length: 25
-* responses: *free text*
----
-
-**Section: Adherence**
-
-**17.0.** During the past 4 days, on how many days have you missed taking all your doses of antiretroviral therapy (ART)?
-* db_table: bcpp_subject_hivcareadherence
-* column: adherence_4_day
-* type: CharField
-* length: 25
-* responses:
-  - `N/A`: *Not applicable* 
-  - `Zero`: *Zero days* 
-  - `One day`: *One day* 
-  - `Two days`: *Two days* 
-  - `Three days`: *Three days* 
-  - `Four days`: *Four days* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**18.0.** Thinking about the past 4 weeks, on average, how would you rate your ability to take all your medications as prescribed?
-* db_table: bcpp_subject_hivcareadherence
-* column: adherence_4_wk
-* type: CharField
-* length: 25
-* responses:
-  - `N/A`: *Not applicable* 
-  - `Very poor`: *Very poor* 
-  - `Poor`: *Poor* 
-  - `Fair`: *Fair* 
-  - `Good`: *Good* 
-  - `Very good`: *Very good* 
-  - `DWTA`: *Don't want to answer* 
----
-
-**Section: Hospitalization**
-
-**19.0.** Were you admitted to the hospital during the ~6 months following the date on which you started ART
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If not applicable, skip to next section.*
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_art_start
-* type: CharField
-* length: 25
-* responses:
-  - `Yes`: *Yes* 
-  - `No`: *No* 
-  - `N/A`: *Not applicable* 
----
-
-**20.0.** About how many weeks or months after starting ART were you admitted to the hospital
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If yes to question about hospital admission. Format is phrase 'NN weeks' or 'NN months', e.g '5 months' or '13 weeks', etc.*
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_art_start_duration
-* type: CharField
-* length: 25
-* responses: *free text*
----
-
-**21.0.** What was the primary reason for the hospitalization?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If yes to question about hospital admission.*
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_art_start_reason
-* type: CharField
-* length: 25
-* responses:
-  - `N/A`: *Not applicable* 
-  - `tb`: *Tuberculosis (TB, MTB)* 
-  - `pneumonia`: *Pneumonia* 
-  - `crypto_meningitis`: *Cryptococcal meningitis* 
-  - `IRIS`: *Immune Reconstitution Inflammatory Syndrome (IRIS)* 
-  - `OTHER_hiv_related`: *Other HIV-related illness* 
-  - `pregnancy_related`: *Pregnancy-related care, including delivery* 
-  - `injury_accident`: *Injury or accident* 
-  - `chronic_disease`: *Chronic disease related care, including high blood pressure, diabetes, cancer, mental illness (specify which)* 
-  - `stroke`: *Stroke (or suspected stroke)* 
-  - `medication_toxicity`: *Medication toxicity (specify)* 
-  - `OTHER`: *Other (specify)* 
-  - `dont_know`: *Don't know* 
----
-
-**21.1.** If Other, specify ...
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_art_start_reason_other
-* type: CharField
-* length: 35
-* responses: *free text*
----
-
-**22.0.** If reason for hospitalization was related to a chronic disease, specify which?
-* db_table: bcpp_subject_hivcareadherence
-* column: chronic_disease
-* type: CharField
-* length: 25
-* responses: *free text*
----
-
-**23.0.** If reason for hospitalization was related to medication toxicity, specify which?
-* db_table: bcpp_subject_hivcareadherence
-* column: medication_toxicity
-* type: CharField
-* length: 25
-* responses: *free text*
----
-
-**24.0.** What is the source of evidence for reason for the hospitalization?
-
-&nbsp;&nbsp;&nbsp;&nbsp; *If yes to question about hospital admission*
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_evidence
-* type: CharField
-* length: 25
-* responses:
-  - `Self-report`: *Self report* 
-  - `Medical-card`: *Medical Card* 
-  - `Both`: *Both* 
-  - `OTHER`: *Other reason, specify* 
----
-
-**24.1.** If Other, specify ...
-* db_table: bcpp_subject_hivcareadherence
-* column: hospitalized_evidence_other
-* type: CharField
-* length: 35
-* responses: *free text*
----
-
-**Section: Clinic**
-
-**25.0.** Which clinic facility are you already receiving therapy from?
-* db_table: bcpp_subject_hivcareadherence
-* column: clinic_receiving_from
-* type: CharField
-* length: 50
-* responses: *free text*
----
-
-**26.0.** When is your next appointment at this facility?
-* db_table: bcpp_subject_hivcareadherence
-* column: next_appointment_date
-* type: DateField
-* format: YYYY-MM-DD
+<a href="#user-content-e0">**E0.**</a>
+1. <a href="#user-content-residency--mobility-1">Residency & Mobility</a>
+2. <a href="#user-content-immigration-status">Immigration Status</a>
+3. <a href="#user-content-demographics-e0">Demographics (E0)</a>
+4. <a href="#user-content-education-e0">Education (E0)</a>
+5. <a href="#user-content-hiv-testing-history-1">HIV Testing History</a>
+6. <a href="#user-content-hiv-test-review-1">HIV Test Review</a>
+7. <a href="#user-content-hiv-result-documentation-1">HIV result documentation</a>
+8. <a href="#user-content-hiv-tested-1">HIV Tested</a>
+9. <a href="#user-content-hiv-untested">HIV Untested</a>
+10. <a href="#user-content-hiv-care-and-adherence-1">HIV care and adherence</a>
+11. <a href="#user-content-sexual-behaviour-1">Sexual Behaviour</a>
+12. <a href="#user-content-recent-partner---12-months-1">Recent Partner - 12 Months</a>
+13. <a href="#user-content-second-partner---12-months-1">Second Partner - 12 Months</a>
+14. <a href="#user-content-third-partner---12-months-1">Third Partner - 12 Months</a>
+15. <a href="#user-content-substance-use">Substance Use</a>
+16. <a href="#user-content-hiv-medical-care-1">HIV Medical care</a>
+17. <a href="#user-content-access-to-care-1">Access to care</a>
+18. <a href="#user-content-circumcision-1">Circumcision</a>
+19. <a href="#user-content-circumcised-1">Circumcised</a>
+20. <a href="#user-content-uncircumcised-1">Uncircumcised</a>
+21. <a href="#user-content-reproductive-health-1">Reproductive Health</a>
+22. <a href="#user-content-pregnancy">Pregnancy</a>
+23. <a href="#user-content-non-pregnancy">Non Pregnancy</a>
+24. <a href="#user-content-medical-diagnoses-1">Medical Diagnoses</a>
+25. <a href="#user-content-heart-attack-or-stroke-1">Heart Attack or Stroke</a>
+26. <a href="#user-content-cancer-1">Cancer</a>
+27. <a href="#user-content-potentially-hiv-related-illnesses-1">Potentially HIV-related illnesses</a>
+28. <a href="#user-content-tuberculosis-1">Tuberculosis</a>
+29. <a href="#user-content-tb-symptoms-1">TB Symptoms</a>
+30. <a href="#user-content-todays-hiv-result-1">Today's HIV Result</a>
+31. <a href="#user-content-elisas-hiv-result-1">Elisa's HIV Result</a>
+32. <a href="#user-content-pima-cd4-count-1">PIMA CD4 count</a>
+33. <a href="#user-content-subject-referral-1">subject referral</a>
 
 
-*Rendered on 2017-09-28 21:03*
+### T2
 
----## [Residency & Mobility](#residency-mobility)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Residency & Mobility
 A model completed by the user on the residency status of the
     participant.
     
@@ -544,7 +180,11 @@ A model completed by the user on the residency status of the
 ---
 
 
-## [Demographics](#demographics)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Demographics
 A model completed by the user of the basic demographics
     of the participant.
     
@@ -602,7 +242,11 @@ A model completed by the user of the basic demographics
 ---
 
 
-## [Education (T2)](#education-t2)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Education (T2)
 A model completed by the user on the particiapnt's level
     of education and work.
     
@@ -729,7 +373,11 @@ A model completed by the user on the particiapnt's level
 ---
 
 
-## [HIV Testing History](#hiv-testing-history)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Testing History
 A model completed by the user of the participant's history
     of testing for HIV.
     
@@ -817,7 +465,11 @@ A model completed by the user of the participant's history
 ---
 
 
-## [HIV Test Review](#hiv-test-review)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Test Review
 Complete this form if HivTestingHistory.has_record.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -857,7 +509,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV result documentation](#hiv-result-documentation)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV result documentation
 *[missing model class docstring]*
 
 
@@ -897,7 +553,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV Tested](#hiv-tested)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Tested
 *[missing model class docstring]*
 
 
@@ -982,7 +642,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV care and adherence](#hiv-care-and-adherence)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV care and adherence
 "A model completed by the user on the participant's access to
     and adherence to HIV care.
     
@@ -1429,7 +1093,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [Sexual Behaviour](#sexual-behaviour)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Sexual Behaviour
 A model completed by the user on the participant's sexual behaviour.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -1543,7 +1211,11 @@ A model completed by the user on the participant's sexual behaviour.
 ---
 
 
-## [Recent Partner - 12 Months](#recent-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Recent Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -1824,7 +1496,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Second Partner - 12 Months](#second-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Second Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -2105,7 +1781,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Third Partner - 12 Months](#third-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Third Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -2386,7 +2066,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [HIV Medical care](#hiv-medical-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Medical care
 *[missing model class docstring]*
 
 
@@ -2440,7 +2124,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Access to care](#access-to-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Access to care
 *[missing model class docstring]*
 
 
@@ -2596,7 +2284,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Circumcision](#circumcision)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Circumcision
 *[missing model class docstring]*
 
 
@@ -2674,7 +2366,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Circumcised](#circumcised)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Circumcised
 *[missing model class docstring]*
 
 
@@ -2792,7 +2488,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Uncircumcised](#uncircumcised)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Uncircumcised
 *[missing model class docstring]*
 
 
@@ -2930,7 +2630,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Reproductive Health](#reproductive-health)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Reproductive Health
 A model completed by the user on the participant's reproductive
     health.
     
@@ -3072,7 +2776,11 @@ A model completed by the user on the participant's reproductive
 ---
 
 
-## [Medical Diagnoses](#medical-diagnoses)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Medical Diagnoses
 A model completed by the user to record any major
     illnesses in the past 12 months.
     
@@ -3147,7 +2855,11 @@ A model completed by the user to record any major
 ---
 
 
-## [Hypertension and Cardiovascular Risk](#hypertension-and-cardiovascular-risk)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Hypertension and Cardiovascular Risk
 Model used for getting hypertension and cardiovascular
     info.
     
@@ -3490,7 +3202,11 @@ Model used for getting hypertension and cardiovascular
 ---
 
 
-## [Heart Attack or Stroke](#heart-attack-or-stroke)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Heart Attack or Stroke
 A model completed by the user to record any heart conditions
     in the past 12 months.
     
@@ -3539,7 +3255,11 @@ A model completed by the user to record any heart conditions
 
 
 
-## [Potentially HIV-related illnesses](#potentially-hiv-related-illnesses)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Potentially HIV-related illnesses
 A model completed by the user to record any potentially
     HIV-related illness in the past 12 months.
     
@@ -3642,7 +3362,11 @@ A model completed by the user to record any potentially
 ---
 
 
-## [Tuberculosis](#tuberculosis)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Tuberculosis
 A model completed by the user to record any diagnosis of
     Tuberculosis in the past 12 months.
 *Instructions*: ['Note to Interviewer: This form is to be filled for all participants even if they do not have a record (on hand) of the diagnosis.']
@@ -3684,7 +3408,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [TB Symptoms](#tb-symptoms)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### TB Symptoms
 
     A user form to capture basic TB symptoms.
 
@@ -3764,7 +3492,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [Quality of Life](#quality-of-life)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Quality of Life
 A model completed by the user to capture information about QOL
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
 
@@ -3858,7 +3590,11 @@ A model completed by the user to capture information about QOL
 ---
 
 
-## [Resource Utilization Costs](#resource-utilization-costs)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Resource Utilization Costs
 A model completed by the user to capture information about participants
     use of resources to obtain medical care.
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -3909,7 +3645,11 @@ A model completed by the user to capture information about participants
 ---
 
 
-## [Outpatient care](#outpatient-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Outpatient care
 A model completed by the user to capture information about any
     outpatient care obtained by the participant.
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -4083,7 +3823,11 @@ A model completed by the user to capture information about any
 ---
 
 
-## [Hospital Admission](#hospital-admission)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Hospital Admission
 A model completed by the user to capture information about hospital admissions
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
 
@@ -4188,7 +3932,11 @@ A model completed by the user to capture information about hospital admissions
 ---
 
 
-## [HIV health care costs](#hiv-health-care-costs)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV health care costs
 A model completed by the user to capture information from the
     participant about obtaining medical or clinical care related to HIV.
     
@@ -4288,7 +4036,11 @@ A model completed by the user to capture information from the
 ---
 
 
-## [Labour Market & Lost Wages](#labour-market-lost-wages)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Labour Market & Lost Wages
 A model completed by the user to capture information about
     the participants experience in the labour market.
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -4487,7 +4239,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [Hiv Linkage To Care](#hiv-linkage-to-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Hiv Linkage To Care
 *[missing model class docstring]*
 
 
@@ -4661,7 +4417,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [Today's HIV Result](#todays-hiv-result)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Today's HIV Result
 *[missing model class docstring]*
 
 
@@ -4744,7 +4504,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [Elisa's HIV Result](#elisas-hiv-result)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Elisa's HIV Result
 *[missing model class docstring]*
 
 
@@ -4778,7 +4542,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [PIMA CD4 count](#pima-cd4-count)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### PIMA CD4 count
 *[missing model class docstring]*
 
 
@@ -4847,7 +4615,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [Hic Enrollment](#hic-enrollment)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Hic Enrollment
 *[missing model class docstring]*
 
 
@@ -4943,7 +4715,11 @@ A model completed by the user to capture information about
 ---
 
 
-## [subject referral](#subject-referral)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### subject referral
 A model completed by the user to indicate a referral to care.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -5015,7 +4791,7 @@ A model completed by the user to indicate a referral to care.
 ---
 
 
-## Requisitions
+#### Requisitions
 
 * Research Blood Draw
 
@@ -5027,9 +4803,13 @@ A model completed by the user to indicate a referral to care.
 
 * ELISA
 
+### E0
 
 
-## [Residency & Mobility](#residency-mobility)
+
+*Rendered on 2017-09-29 18:26*
+
+#### Residency & Mobility
 A model completed by the user on the residency status of the
     participant.
     
@@ -5126,7 +4906,11 @@ A model completed by the user on the residency status of the
 ---
 
 
-## [Immigration Status](#immigration-status)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Immigration Status
 *[missing model class docstring]*
 
 
@@ -5199,7 +4983,11 @@ A model completed by the user on the residency status of the
 ---
 
 
-## [Demographics (E0)](#demographics-e0)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Demographics (E0)
 A model completed by the user of the basic demographics
     of the participant.
     
@@ -5333,7 +5121,11 @@ A model completed by the user of the basic demographics
 ---
 
 
-## [Education (E0)](#education-e0)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Education (E0)
 A model completed by the user on the particiapnt's level
     of education and work.
     
@@ -5460,7 +5252,11 @@ A model completed by the user on the particiapnt's level
 ---
 
 
-## [HIV Testing History](#hiv-testing-history)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Testing History
 A model completed by the user of the participant's history
     of testing for HIV.
     
@@ -5548,7 +5344,11 @@ A model completed by the user of the participant's history
 ---
 
 
-## [HIV Test Review](#hiv-test-review)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Test Review
 Complete this form if HivTestingHistory.has_record.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -5588,7 +5388,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV result documentation](#hiv-result-documentation)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV result documentation
 *[missing model class docstring]*
 
 
@@ -5628,7 +5432,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV Tested](#hiv-tested)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Tested
 *[missing model class docstring]*
 
 
@@ -5713,7 +5521,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV Untested](#hiv-untested)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Untested
 *[missing model class docstring]*
 
 
@@ -5770,7 +5582,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [HIV care and adherence](#hiv-care-and-adherence)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV care and adherence
 "A model completed by the user on the participant's access to
     and adherence to HIV care.
     
@@ -6217,7 +6033,11 @@ Complete this form if HivTestingHistory.has_record.
 ---
 
 
-## [Sexual Behaviour](#sexual-behaviour)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Sexual Behaviour
 A model completed by the user on the participant's sexual behaviour.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -6331,7 +6151,11 @@ A model completed by the user on the participant's sexual behaviour.
 ---
 
 
-## [Recent Partner - 12 Months](#recent-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Recent Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -6612,7 +6436,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Second Partner - 12 Months](#second-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Second Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -6893,7 +6721,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Third Partner - 12 Months](#third-partner-12-months)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Third Partner - 12 Months
 A model completed by the user on the participant's
     recent sexual behaviour.
     
@@ -7174,7 +7006,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Substance Use](#substance-use)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Substance Use
 *[missing model class docstring]*
 
 
@@ -7230,7 +7066,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [HIV Medical care](#hiv-medical-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### HIV Medical care
 *[missing model class docstring]*
 
 
@@ -7284,7 +7124,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Access to care](#access-to-care)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Access to care
 *[missing model class docstring]*
 
 
@@ -7440,7 +7284,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Circumcision](#circumcision)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Circumcision
 *[missing model class docstring]*
 
 
@@ -7518,7 +7366,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Circumcised](#circumcised)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Circumcised
 *[missing model class docstring]*
 
 
@@ -7636,7 +7488,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Uncircumcised](#uncircumcised)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Uncircumcised
 *[missing model class docstring]*
 
 
@@ -7774,7 +7630,11 @@ A model completed by the user on the participant's
 ---
 
 
-## [Reproductive Health](#reproductive-health)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Reproductive Health
 A model completed by the user on the participant's reproductive
     health.
     
@@ -7916,7 +7776,11 @@ A model completed by the user on the participant's reproductive
 ---
 
 
-## [Pregnancy](#pregnancy)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Pregnancy
 A model completed by the user for pregnant participants.
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
 
@@ -7993,7 +7857,11 @@ A model completed by the user for pregnant participants.
 ---
 
 
-## [Non Pregnancy](#non-pregnancy)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Non Pregnancy
 A model completed by the user for female participants who are not pregnant.
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
 
@@ -8062,7 +7930,11 @@ A model completed by the user for female participants who are not pregnant.
 ---
 
 
-## [Medical Diagnoses](#medical-diagnoses)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Medical Diagnoses
 A model completed by the user to record any major
     illnesses in the past 12 months.
     
@@ -8137,7 +8009,11 @@ A model completed by the user to record any major
 ---
 
 
-## [Heart Attack or Stroke](#heart-attack-or-stroke)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Heart Attack or Stroke
 A model completed by the user to record any heart conditions
     in the past 12 months.
     
@@ -8186,7 +8062,11 @@ A model completed by the user to record any heart conditions
 
 
 
-## [Potentially HIV-related illnesses](#potentially-hiv-related-illnesses)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Potentially HIV-related illnesses
 A model completed by the user to record any potentially
     HIV-related illness in the past 12 months.
     
@@ -8289,7 +8169,11 @@ A model completed by the user to record any potentially
 ---
 
 
-## [Tuberculosis](#tuberculosis)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Tuberculosis
 A model completed by the user to record any diagnosis of
     Tuberculosis in the past 12 months.
 *Instructions*: ['Note to Interviewer: This form is to be filled for all participants even if they do not have a record (on hand) of the diagnosis.']
@@ -8331,7 +8215,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [TB Symptoms](#tb-symptoms)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### TB Symptoms
 
     A user form to capture basic TB symptoms.
 
@@ -8411,7 +8299,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [Today's HIV Result](#todays-hiv-result)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Today's HIV Result
 *[missing model class docstring]*
 
 
@@ -8494,7 +8386,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [Elisa's HIV Result](#elisas-hiv-result)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### Elisa's HIV Result
 *[missing model class docstring]*
 
 
@@ -8528,7 +8424,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [PIMA CD4 count](#pima-cd4-count)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### PIMA CD4 count
 *[missing model class docstring]*
 
 
@@ -8597,7 +8497,11 @@ A model completed by the user to record any diagnosis of
 ---
 
 
-## [subject referral](#subject-referral)
+
+
+*Rendered on 2017-09-29 18:26*
+
+#### subject referral
 A model completed by the user to indicate a referral to care.
     
 *Instructions*: Please complete the questions below. Required questions are in bold. When all required questions are complete click SAVE. Based on your responses, additional questions may be required or some answers may need to be corrected.
@@ -8669,7 +8573,7 @@ A model completed by the user to indicate a referral to care.
 ---
 
 
-## Requisitions
+#### Requisitions
 
 * Research Blood Draw
 
@@ -8681,5 +8585,8 @@ A model completed by the user to indicate a referral to care.
 
 * ELISA
 
+
+
+*Rendered on 2017-09-29 18:26*
 
 
