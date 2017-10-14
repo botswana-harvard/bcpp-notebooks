@@ -1,3 +1,3 @@
-# bcpp-notebooks
+# edc-notebooks
 
-    python manage.py shell_plus --notebook
+    python manage.py shell_plus --notebook --settings=<your>.<settings>
